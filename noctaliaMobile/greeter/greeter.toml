@@ -1,0 +1,16 @@
+[session]
+default = 'umbriel'
+
+[user]
+default = 'gonzo'
+
+[appearance]
+password_style = 'random'
+hide_logo = false
+scheme = 'Synced'
+power_buttons_position = 'bottom-right'
+scheme_selector_position = 'hidden'
+theme_mode = 'dark'
+corner_radius_scale = 1.0
+
+

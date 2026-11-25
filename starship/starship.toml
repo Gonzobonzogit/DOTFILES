@@ -1,0 +1,104 @@
+# Starship config — translated from starship.nix (Home Manager)
+# Location: ~/.config/starship.toml
+
+
+format = '''
+┌────\[$jobs$directory\]───\[$username@$hostname$os\]──>
+├$git_branch$git_status$character
+└──>>'''
+
+right_format = '\[$time\]'
+
+continuation_prompt = "▶"
+
+# --- 0. Cyberpunk Palette ---
+[palettes.noctalia]
+bg1         = "#0d0221"
+bg2         = "#190a2e"
+fg0         = "#e0def4"
+neon_pink   = "#ff2e88"
+neon_cyan   = "#08f7fe"
+neon_purple = "#b967ff"
+neon_yellow = "#f9f871"
+neon_green  = "#09fbd3"
+red_alert   = "#ff003c"
+muted_grey  = "#5c5470"
+
+# --- 2. Directory ---
+[directory]
+format = "$path"
+style = "bold neon_cyan"
+read_only = "🔒"
+read_only_style = "red_alert"
+truncation_length = 0
+truncation_symbol = "/"
+
+# --- 3. Git ---
+[git_branch]
+format = "[$symbol $branch ]($style)"
+symbol = "on "
+style = "bold neon_purple"
+
+[git_status]
+format = "[($all_status$ahead_behind)]($style)"
+style = "neon_yellow"
+staged = "✚"
+up_to_date = "✅"
+stashed = "🗄"
+modified = "✺"
+deleted = "✖"
+renamed = "➜"
+untracked = "✳"
+conflicted = "💥"
+
+# --- 4. Jobs ---
+[jobs]
+symbol = "✦ "
+number_threshold = 2
+symbol_threshold = 1
+style = "bold neon_cyan"
+format = "[$symbol$number]($style)"
+
+# --- 5. Operating System ---
+[os]
+format = "[$symbol]($style)"
+style = "neon_cyan"
+
+[os.symbols]
+NixOS = "❄"
+
+# --- 6. Host ---
+[hostname]
+ssh_only = false
+ssh_symbol = "🌐"
+format = "[$hostname](neon_pink)"
+
+# --- 7. Username ---
+[username]
+show_always = true
+format = "[$user](neon_purple)"
+
+# --- 8. Prompt Input Character ---
+[character]
+success_symbol = "[✔](bold neon_green) "
+error_symbol = "[✘](bold red_alert) "
+
+# --- 9. Dynamic Language Icons ---
+[nodejs]
+format = "[$symbol]($style)"
+symbol = ""
+style = "neon_pink"
+
+# --- 10. System Time ---
+[time]
+disabled = false
+format = "[$time]($style)"
+time_format = "%I:%M:%p"
+style = "fg0"
+utc_time_offset = "local"
+
+# --- 11. Google Cloud ---
+[gcloud]
+format = "[$symbol]"
+symbol = "☁️"
+
